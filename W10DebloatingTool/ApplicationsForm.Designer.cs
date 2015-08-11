@@ -60,7 +60,7 @@
             // cortana
             // 
             this.cortana.AutoSize = true;
-            this.cortana.Location = new System.Drawing.Point(12, 53);
+            this.cortana.Location = new System.Drawing.Point(12, 64);
             this.cortana.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cortana.Name = "cortana";
             this.cortana.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -72,7 +72,7 @@
             // oneDrive
             // 
             this.oneDrive.AutoSize = true;
-            this.oneDrive.Location = new System.Drawing.Point(12, 84);
+            this.oneDrive.Location = new System.Drawing.Point(12, 95);
             this.oneDrive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.oneDrive.Name = "oneDrive";
             this.oneDrive.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -84,7 +84,7 @@
             // builder
             // 
             this.builder.AutoSize = true;
-            this.builder.Location = new System.Drawing.Point(12, 115);
+            this.builder.Location = new System.Drawing.Point(12, 126);
             this.builder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.builder.Name = "builder";
             this.builder.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -96,7 +96,7 @@
             // getStarted
             // 
             this.getStarted.AutoSize = true;
-            this.getStarted.Location = new System.Drawing.Point(12, 146);
+            this.getStarted.Location = new System.Drawing.Point(12, 157);
             this.getStarted.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.getStarted.Name = "getStarted";
             this.getStarted.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -108,7 +108,7 @@
             // officeHub
             // 
             this.officeHub.AutoSize = true;
-            this.officeHub.Location = new System.Drawing.Point(12, 217);
+            this.officeHub.Location = new System.Drawing.Point(12, 219);
             this.officeHub.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.officeHub.Name = "officeHub";
             this.officeHub.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -120,7 +120,7 @@
             // solitaire
             // 
             this.solitaire.AutoSize = true;
-            this.solitaire.Location = new System.Drawing.Point(12, 248);
+            this.solitaire.Location = new System.Drawing.Point(12, 250);
             this.solitaire.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.solitaire.Name = "solitaire";
             this.solitaire.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -132,7 +132,7 @@
             // skype
             // 
             this.skype.AutoSize = true;
-            this.skype.Location = new System.Drawing.Point(12, 279);
+            this.skype.Location = new System.Drawing.Point(12, 281);
             this.skype.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.skype.Name = "skype";
             this.skype.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -144,7 +144,7 @@
             // maps
             // 
             this.maps.AutoSize = true;
-            this.maps.Location = new System.Drawing.Point(12, 310);
+            this.maps.Location = new System.Drawing.Point(12, 312);
             this.maps.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.maps.Name = "maps";
             this.maps.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -156,7 +156,7 @@
             // onenote
             // 
             this.onenote.AutoSize = true;
-            this.onenote.Location = new System.Drawing.Point(12, 341);
+            this.onenote.Location = new System.Drawing.Point(12, 343);
             this.onenote.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.onenote.Name = "onenote";
             this.onenote.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -168,7 +168,7 @@
             // weather
             // 
             this.weather.AutoSize = true;
-            this.weather.Location = new System.Drawing.Point(12, 372);
+            this.weather.Location = new System.Drawing.Point(12, 374);
             this.weather.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.weather.Name = "weather";
             this.weather.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -180,7 +180,7 @@
             // sport
             // 
             this.sport.AutoSize = true;
-            this.sport.Location = new System.Drawing.Point(12, 403);
+            this.sport.Location = new System.Drawing.Point(12, 405);
             this.sport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.sport.Name = "sport";
             this.sport.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -192,7 +192,7 @@
             // finance
             // 
             this.finance.AutoSize = true;
-            this.finance.Location = new System.Drawing.Point(406, 53);
+            this.finance.Location = new System.Drawing.Point(406, 64);
             this.finance.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.finance.Name = "finance";
             this.finance.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -204,7 +204,7 @@
             // news
             // 
             this.news.AutoSize = true;
-            this.news.Location = new System.Drawing.Point(406, 84);
+            this.news.Location = new System.Drawing.Point(406, 95);
             this.news.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.news.Name = "news";
             this.news.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -216,7 +216,7 @@
             // xbox
             // 
             this.xbox.AutoSize = true;
-            this.xbox.Location = new System.Drawing.Point(406, 115);
+            this.xbox.Location = new System.Drawing.Point(406, 126);
             this.xbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xbox.Name = "xbox";
             this.xbox.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -228,7 +228,7 @@
             // music
             // 
             this.music.AutoSize = true;
-            this.music.Location = new System.Drawing.Point(406, 146);
+            this.music.Location = new System.Drawing.Point(406, 157);
             this.music.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.music.Name = "music";
             this.music.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -240,7 +240,7 @@
             // films
             // 
             this.films.AutoSize = true;
-            this.films.Location = new System.Drawing.Point(406, 177);
+            this.films.Location = new System.Drawing.Point(406, 188);
             this.films.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.films.Name = "films";
             this.films.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -252,7 +252,7 @@
             // photos
             // 
             this.photos.AutoSize = true;
-            this.photos.Location = new System.Drawing.Point(406, 208);
+            this.photos.Location = new System.Drawing.Point(406, 219);
             this.photos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.photos.Name = "photos";
             this.photos.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -264,7 +264,7 @@
             // camera
             // 
             this.camera.AutoSize = true;
-            this.camera.Location = new System.Drawing.Point(406, 239);
+            this.camera.Location = new System.Drawing.Point(406, 250);
             this.camera.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.camera.Name = "camera";
             this.camera.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -276,7 +276,7 @@
             // alarms
             // 
             this.alarms.AutoSize = true;
-            this.alarms.Location = new System.Drawing.Point(406, 270);
+            this.alarms.Location = new System.Drawing.Point(406, 281);
             this.alarms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.alarms.Name = "alarms";
             this.alarms.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -288,7 +288,7 @@
             // contacts
             // 
             this.contacts.AutoSize = true;
-            this.contacts.Location = new System.Drawing.Point(406, 301);
+            this.contacts.Location = new System.Drawing.Point(406, 312);
             this.contacts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.contacts.Name = "contacts";
             this.contacts.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -300,7 +300,7 @@
             // mail
             // 
             this.mail.AutoSize = true;
-            this.mail.Location = new System.Drawing.Point(406, 332);
+            this.mail.Location = new System.Drawing.Point(406, 343);
             this.mail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.mail.Name = "mail";
             this.mail.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -312,7 +312,7 @@
             // phoneCompanion
             // 
             this.phoneCompanion.AutoSize = true;
-            this.phoneCompanion.Location = new System.Drawing.Point(406, 363);
+            this.phoneCompanion.Location = new System.Drawing.Point(406, 374);
             this.phoneCompanion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.phoneCompanion.Name = "phoneCompanion";
             this.phoneCompanion.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -324,7 +324,7 @@
             // soundRecord
             // 
             this.soundRecord.AutoSize = true;
-            this.soundRecord.Location = new System.Drawing.Point(406, 394);
+            this.soundRecord.Location = new System.Drawing.Point(406, 405);
             this.soundRecord.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.soundRecord.Name = "soundRecord";
             this.soundRecord.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -336,7 +336,7 @@
             // edge
             // 
             this.edge.AutoSize = true;
-            this.edge.Location = new System.Drawing.Point(12, 177);
+            this.edge.Location = new System.Drawing.Point(12, 188);
             this.edge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.edge.Name = "edge";
             this.edge.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -351,7 +351,7 @@
             this.allMetro.BackColor = System.Drawing.Color.OrangeRed;
             this.allMetro.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.allMetro.ForeColor = System.Drawing.Color.White;
-            this.allMetro.Location = new System.Drawing.Point(406, 425);
+            this.allMetro.Location = new System.Drawing.Point(406, 436);
             this.allMetro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.allMetro.Name = "allMetro";
             this.allMetro.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
@@ -362,6 +362,7 @@
             // 
             // selectAllApps
             // 
+            this.selectAllApps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.selectAllApps.Cursor = System.Windows.Forms.Cursors.Default;
             this.selectAllApps.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.selectAllApps.FlatAppearance.BorderSize = 2;
@@ -369,7 +370,7 @@
             this.selectAllApps.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
             this.selectAllApps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.selectAllApps.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.selectAllApps.Location = new System.Drawing.Point(12, 12);
+            this.selectAllApps.Location = new System.Drawing.Point(387, 12);
             this.selectAllApps.Name = "selectAllApps";
             this.selectAllApps.Size = new System.Drawing.Size(175, 30);
             this.selectAllApps.TabIndex = 1;
@@ -379,6 +380,7 @@
             // 
             // unselectAllApps
             // 
+            this.unselectAllApps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.unselectAllApps.Cursor = System.Windows.Forms.Cursors.Default;
             this.unselectAllApps.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.unselectAllApps.FlatAppearance.BorderSize = 2;
@@ -386,7 +388,7 @@
             this.unselectAllApps.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
             this.unselectAllApps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.unselectAllApps.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.unselectAllApps.Location = new System.Drawing.Point(193, 12);
+            this.unselectAllApps.Location = new System.Drawing.Point(568, 12);
             this.unselectAllApps.Name = "unselectAllApps";
             this.unselectAllApps.Size = new System.Drawing.Size(175, 30);
             this.unselectAllApps.TabIndex = 1;
@@ -399,7 +401,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.ClientSize = new System.Drawing.Size(755, 471);
+            this.ClientSize = new System.Drawing.Size(755, 533);
             this.Controls.Add(this.unselectAllApps);
             this.Controls.Add(this.selectAllApps);
             this.Controls.Add(this.allMetro);

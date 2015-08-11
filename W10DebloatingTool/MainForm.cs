@@ -14,6 +14,7 @@ namespace W10DebloatingTool
     public partial class MainForm : Form
     {
         private int tabsHeight = 44;
+        private Color backColor = Color.Black;
 
         private Dictionary<string, Form> panelForms = new Dictionary<string, Form>();
         private Dictionary<string, Button> panelButtons = new Dictionary<string, Button>();
@@ -34,6 +35,10 @@ namespace W10DebloatingTool
             this.languagesCombo.ValueMember = "Key";
             this.languagesCombo.DisplayMember = "Value";
             this.languagesCombo.SelectedValue = Internationalization.CurrentLanguageCode;
+
+            label1.BackColor = ControlPaint.Dark(Color.DarkGray);
+            saveLogsCheckbox.BackColor = ControlPaint.Dark(Color.DarkGray);
+            saveLogsCheckbox.ForeColor = Color.White;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -70,7 +75,7 @@ namespace W10DebloatingTool
             button.FlatAppearance.MouseOverBackColor = form.BackColor;
             button.FlatAppearance.MouseDownBackColor = form.BackColor;
             button.FlatAppearance.BorderSize = 0;
-            button.BackColor = Color.DimGray;
+            button.BackColor = ControlPaint.Dark(Color.DimGray);
             button.Tag = form.Name;
             button.Click += SwitchView;
             panelButtons.Add(form.Name, button);
@@ -96,12 +101,18 @@ namespace W10DebloatingTool
             // Reset buttons colors
             foreach (Button btn in panelButtons.Values.Where(b => b.Tag.ToString() != viewName))
             {
-                btn.BackColor = Color.DimGray;
+                btn.BackColor = ControlPaint.Dark(Color.DarkGray);
             }
 
             Button button = panelButtons[viewName];
             button.BackColor = form.BackColor;
             button.ForeColor = form.ForeColor;
+
+            backColor = form.BackColor;
+
+            letsgoButton.FlatAppearance.MouseOverBackColor = ControlPaint.LightLight(ControlPaint.LightLight(form.BackColor));
+            letsgoButton.FlatAppearance.MouseDownBackColor = ControlPaint.LightLight(ControlPaint.LightLight(form.BackColor));
+            letsgoButton.ForeColor = form.BackColor;
 
             // Update scrollbar
             int offset = form.Height;
@@ -170,6 +181,17 @@ namespace W10DebloatingTool
                 Properties.Settings.Default.LogsPath = dlg.SelectedPath;
                 Properties.Settings.Default.Save();
             }
+        }
+
+        private void letsgoButton_MouseEnter(object sender, EventArgs e)
+        {
+             //letsgoButton.ForeColor = Color.White;
+        }
+
+        private void letsgoButton_MouseLeave(object sender, EventArgs e)
+        {
+            letsgoButton.ForeColor = backColor;
+            
         }
     }
 }
