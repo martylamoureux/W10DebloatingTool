@@ -46,16 +46,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ApplicationsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ApplicationsForm.Designer.cs">
+      <DependentUpon>ApplicationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="i18n\Internationalization.cs" />
+    <Compile Include="i18n\IStrings.cs" />
+    <Compile Include="i18n\StringsEn.cs" />
+    <Compile Include="i18n\StringsFr.cs" />
+    <Compile Include="i18n\ITranslatable.cs" />
+    <Compile Include="Injector.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrivacyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrivacyForm.Designer.cs">
+      <DependentUpon>PrivacyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="ApplicationsForm.resx">
+      <DependentUpon>ApplicationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrivacyForm.resx">
+      <DependentUpon>PrivacyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

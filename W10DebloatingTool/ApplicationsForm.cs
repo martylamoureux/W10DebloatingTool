@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace W10DebloatingTool
 {
-    public partial class Form1 : Form
+    public partial class ApplicationsForm : Form
     {
-        public Form1()
+        public ApplicationsForm()
         {
             InitializeComponent();
+        }
+
+        public void LoadTranslation()
+        {
+            
         }
     }
 }
