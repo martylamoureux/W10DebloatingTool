@@ -8,11 +8,17 @@ namespace W10DebloatingTool.i18n
     class Internationalization
     {
 
-        public static Dictionary<string, string> Languages => new Dictionary<string, string>
+        public static Dictionary<string, string> Languages
         {
-            {"en", "English" },
-            {"fr", "Français" }
-        };
+            get
+            {
+                return new Dictionary<string, string>
+                {
+                    {"en", "English"},
+                    {"fr", "Français"}
+                };
+            }
+        }
 
         public static IStrings Strings
         {
@@ -49,8 +55,14 @@ namespace W10DebloatingTool.i18n
             Settings.Default.Save();
         }
 
-        public static string CurrentLanguageCode => Settings.Default.Language;
+        public static string CurrentLanguageCode
+        {
+            get { return Settings.Default.Language; }
+        }
 
-        public static string CurrentLanguageName => Languages[Settings.Default.Language];
+        public static string CurrentLanguageName
+        {
+            get { return Languages[Settings.Default.Language]; }
+        }
     }
 }
