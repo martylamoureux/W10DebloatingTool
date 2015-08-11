@@ -17,7 +17,7 @@ namespace W10DebloatingTool
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Version w10 = new Version(11, 0, 0, 0);
+            Version w10 = new Version(10, 0, 0, 0);
             if (Environment.OSVersion.Version < w10)
             {
                 Utils.Error(Internationalization.Strings.NotWindows10Error);

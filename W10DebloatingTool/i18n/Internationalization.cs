@@ -41,8 +41,14 @@ namespace W10DebloatingTool.i18n
             }
         }
 
-        public static void SetSystemLanguage()
+        public static void SetSystemLanguage(bool force = false)
         {
+            if (!force)
+            {
+                if (Settings.Default.Language != "none")
+                    return;
+            }
+
             CultureInfo currentCulture = Thread.CurrentThread.CurrentCulture;
             if (currentCulture.TwoLetterISOLanguageName == "fr")
                 SetLanguage("fr");

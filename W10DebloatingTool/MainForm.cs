@@ -13,6 +13,8 @@ namespace W10DebloatingTool
 {
     public partial class MainForm : Form
     {
+        private int tabsHeight = 44;
+
         private Dictionary<string, Form> panelForms = new Dictionary<string, Form>();
         private Dictionary<string, Button> panelButtons = new Dictionary<string, Button>();
 
@@ -24,6 +26,7 @@ namespace W10DebloatingTool
             InitializeComponent();
             RegisterView(new PrivacyForm(), privacyButton);
             RegisterView(new ApplicationsForm(), appsButton);
+            RegisterView(new ErgonomyForm(), ergonomyButton);
             AdaptButtons();
             LoadTranslation();
 
@@ -45,6 +48,7 @@ namespace W10DebloatingTool
             IStrings strings = Internationalization.Strings;
             this.privacyButton.Text = strings.Privacy;
             this.appsButton.Text = strings.Applications;
+            this.ergonomyButton.Text = strings.Ergonomy;
 
             this.letsgoButton.Text = strings.LetsGo.ToUpper();
             this.saveLogsCheckbox.Text = strings.SaveLogs;
@@ -97,6 +101,7 @@ namespace W10DebloatingTool
 
             Button button = panelButtons[viewName];
             button.BackColor = form.BackColor;
+            button.ForeColor = form.ForeColor;
 
             // Update scrollbar
             int offset = form.Height;
@@ -105,13 +110,14 @@ namespace W10DebloatingTool
         public void AdaptButtons()
         {
             int width = this.Width / panelButtons.Count;
-            int y = 23;
+            int y = containerPanel.Top - tabsHeight;
             int x = 0;
 
             foreach (Button button in panelButtons.Values)
             {
                 button.Location = new Point(x, y);
                 button.Width = width;
+                button.Height = tabsHeight;
 
                 x += width;
             }
@@ -128,10 +134,22 @@ namespace W10DebloatingTool
                 foreach (Form form in panelForms.Values)
                 {
                     form.GetType().GetMethod("LoadTranslation").Invoke(form, new object[0]);
-
                 }
             }
             
+        }
+
+        private void letsgoButton_Click(object sender, EventArgs e)
+        {
+            List<string> bag = new List<string>();
+
+            foreach (Form form in panelForms.Values)
+            {
+                bag.AddRange((IEnumerable<string>) form.GetType().GetMethod("Collect").Invoke(form, new object[0]));
+            }
+
+            Engine engine = new Engine(bag.ToArray(), this.saveLogsCheckbox.Checked);
+            engine.Run();
         }
     }
 }
