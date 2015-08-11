@@ -122,6 +122,7 @@
             this.saveLogsCheckbox.TabIndex = 3;
             this.saveLogsCheckbox.Text = "Save Logs";
             this.saveLogsCheckbox.UseVisualStyleBackColor = true;
+            this.saveLogsCheckbox.CheckedChanged += new System.EventHandler(this.saveLogsCheckbox_CheckedChanged);
             // 
             // ergonomyButton
             // 

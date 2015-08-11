@@ -15,6 +15,11 @@ namespace W10DebloatingTool.i18n
             get { return "Enregistrer les Logs"; }
         }
 
+        public string ChooseLogsPath
+        {
+            get { return "Veuillez choisir où sauvegarder les logs d'éxécution"; }
+        }
+
         public string Privacy
         {
             get { return "Confidentialité"; }

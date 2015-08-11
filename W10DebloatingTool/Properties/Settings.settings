@@ -5,5 +5,8 @@
     <Setting Name="Language" Type="System.String" Scope="User">
       <Value Profile="(Default)">none</Value>
     </Setting>
+    <Setting Name="LogsPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

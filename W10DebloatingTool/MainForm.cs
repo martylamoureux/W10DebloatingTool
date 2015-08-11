@@ -151,5 +151,25 @@ namespace W10DebloatingTool
             Engine engine = new Engine(bag.ToArray(), this.saveLogsCheckbox.Checked);
             engine.Run();
         }
+
+        private void saveLogsCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (saveLogsCheckbox.Checked)
+            {
+                string path = Properties.Settings.Default.LogsPath;
+
+                FolderBrowserDialog dlg = new FolderBrowserDialog();
+                dlg.Description = Internationalization.Strings.ChooseLogsPath;
+                dlg.SelectedPath = path;
+                if (dlg.ShowDialog() != DialogResult.OK)
+                {
+                    saveLogsCheckbox.Checked = false;
+                    return;
+                }
+
+                Properties.Settings.Default.LogsPath = dlg.SelectedPath;
+                Properties.Settings.Default.Save();
+            }
+        }
     }
 }

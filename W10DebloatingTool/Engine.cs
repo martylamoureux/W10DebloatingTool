@@ -12,6 +12,9 @@ namespace W10DebloatingTool
     {
         private string[] tags;
         private readonly bool saveLogs;
+        private DateTime executionTime = DateTime.Now;
+
+        private StringBuilder log = new StringBuilder();
 
         public Engine(string[] tags, bool saveLogs)
         {
@@ -19,14 +22,33 @@ namespace W10DebloatingTool
             this.saveLogs = saveLogs;
         }
 
+        protected void WriteLog(string text)
+        {
+            log.AppendLine(string.Format("[{0} {1}] {2}", DateTime.Now.ToShortDateString(),
+                DateTime.Now.ToLongTimeString(), text));
+        }
+
+        protected void FlushLog()
+        {
+            string filename = string.Format("{0}_{1}.txt", DateTime.Now.ToShortDateString().Replace('/', '-'),
+                DateTime.Now.ToLongTimeString().Replace(':', '-'));
+            System.IO.File.WriteAllText(System.IO.Path.Combine(Properties.Settings.Default.LogsPath, filename), log.ToString());
+            log.Clear();
+        }
+
         public void Run()
         {
+            executionTime = DateTime.Now;
+            WriteLog("== Started execution");
             foreach (string tag in tags)
                 RunTag(tag);
+            WriteLog("== Finished execution");
+            FlushLog();
         }
 
         public void RunTag(string tag)
         {
+            WriteLog("==== Running " + tag);
             switch (tag)
             {
                 case "remove_cortana":
@@ -104,10 +126,12 @@ namespace W10DebloatingTool
                         @"SOFTWARE\Policies\Microsoft\Windows\Personalization", "NoLockScreen", 1);
                     break;
             }
+            WriteLog("==== Finished " + tag);
         }
 
         public void RunPowershell(string script)
         {
+            WriteLog("Running  PowerShell script : " + script);
             StringBuilder outputBuilder = new StringBuilder();
             using (PowerShell shell = PowerShell.Create())
             {
@@ -134,6 +158,7 @@ namespace W10DebloatingTool
 
         public bool EditLocalMachineRegistry(RegistryKey baseRegistryKey, string key, string subkey, object value)
         {
+            WriteLog("Editing Registry Key : " + baseRegistryKey.Name + @"\" + key + "::" + subkey + "=" + value);
             try
             {
                 RegistryKey sk = baseRegistryKey.CreateSubKey(key);

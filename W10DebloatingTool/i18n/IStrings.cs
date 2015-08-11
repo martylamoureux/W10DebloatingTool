@@ -10,6 +10,7 @@ namespace W10DebloatingTool.i18n
     {
         string LetsGo { get; }
         string SaveLogs { get; }
+        string ChooseLogsPath { get; }
 
         string Privacy { get; }
 
