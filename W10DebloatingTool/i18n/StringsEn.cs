@@ -22,5 +22,10 @@ namespace W10DebloatingTool.i18n
         {
             get { return "Applications"; }
         }
+
+        public string NotWindows10Error
+        {
+            get { return "This program is meant to be run on Windows 10."; }
+        }
     }
 }

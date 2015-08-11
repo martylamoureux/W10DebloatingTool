@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
+using System.Windows.Forms;
 using W10DebloatingTool.Properties;
 
 namespace W10DebloatingTool.i18n

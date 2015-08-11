@@ -14,5 +14,7 @@ namespace W10DebloatingTool.i18n
         string Privacy { get; }
 
         string Applications { get; }
+
+        string NotWindows10Error { get; }
     }
 }
