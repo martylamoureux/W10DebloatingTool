@@ -13,6 +13,8 @@ namespace W10DebloatingTool.i18n
         string ChooseLogsPath { get; }
 
         string Privacy { get; }
+        string UseAdsId { get; }
+        string AllowSitesToAccessMyLanguage { get; }
 
         string Applications { get; }
         string RemoveCortana { get; }
@@ -43,9 +45,30 @@ namespace W10DebloatingTool.i18n
         string SelectAllApps { get; }
         string UnselectAllApps { get; }
 
+        string Services { get; }
+        string DisableSmartScreen { get; }
+        string DisablePhoneServices { get; }
+        string DisableBiometricSystem { get; }
+        string DisableDiagTrack { get; }
+        string DisableAutoLogger { get; }
+        string DisableDmwAppPushService { get; }
+        string BlockTrackingServers { get; }
+        string EnableGodMode { get; }
+        string NoTilesOnStartMenu { get; }
+        string SearchBar { get; }
+        string DisableIt { get; }
+        string AsButton { get; }
+        string AsBar { get; }
+
         string Ergonomy { get; }
         string NoLockscreen { get; }
 
         string NotWindows10Error { get; }
+        string Informations { get; }
+        string Version { get; }
+        string Close { get; }
+        string NothingToDo { get; }
+        string ProcessingWillTakeAWhile { get; }
+        string RestartComputer { get; }
     }
 }

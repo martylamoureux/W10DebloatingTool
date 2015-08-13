@@ -36,6 +36,8 @@
             this.saveLogsCheckbox = new System.Windows.Forms.CheckBox();
             this.ergonomyButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.infoButton = new System.Windows.Forms.Button();
+            this.servicesButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // containerPanel
@@ -47,7 +49,7 @@
             this.containerPanel.Location = new System.Drawing.Point(0, 44);
             this.containerPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.containerPanel.Name = "containerPanel";
-            this.containerPanel.Size = new System.Drawing.Size(777, 450);
+            this.containerPanel.Size = new System.Drawing.Size(734, 371);
             this.containerPanel.TabIndex = 0;
             // 
             // privacyButton
@@ -85,11 +87,12 @@
             this.languagesCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.languagesCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.languagesCombo.FormattingEnabled = true;
-            this.languagesCombo.Location = new System.Drawing.Point(12, 540);
+            this.languagesCombo.Location = new System.Drawing.Point(12, 461);
             this.languagesCombo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.languagesCombo.Name = "languagesCombo";
             this.languagesCombo.Size = new System.Drawing.Size(140, 25);
             this.languagesCombo.TabIndex = 2;
+            this.languagesCombo.Visible = false;
             this.languagesCombo.SelectedIndexChanged += new System.EventHandler(this.languagesCombo_SelectedIndexChanged);
             // 
             // letsgoButton
@@ -104,10 +107,10 @@
             this.letsgoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.letsgoButton.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.letsgoButton.ForeColor = System.Drawing.Color.Black;
-            this.letsgoButton.Location = new System.Drawing.Point(194, 449);
+            this.letsgoButton.Location = new System.Drawing.Point(194, 372);
             this.letsgoButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.letsgoButton.Name = "letsgoButton";
-            this.letsgoButton.Size = new System.Drawing.Size(389, 84);
+            this.letsgoButton.Size = new System.Drawing.Size(346, 84);
             this.letsgoButton.TabIndex = 1;
             this.letsgoButton.Text = "LET\'S GO";
             this.letsgoButton.UseVisualStyleBackColor = false;
@@ -119,7 +122,7 @@
             // 
             this.saveLogsCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveLogsCheckbox.AutoSize = true;
-            this.saveLogsCheckbox.Location = new System.Drawing.Point(489, 540);
+            this.saveLogsCheckbox.Location = new System.Drawing.Point(446, 463);
             this.saveLogsCheckbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.saveLogsCheckbox.Name = "saveLogsCheckbox";
             this.saveLogsCheckbox.Size = new System.Drawing.Size(89, 23);
@@ -145,20 +148,54 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(-4, 426);
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Location = new System.Drawing.Point(-4, 347);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(804, 160);
+            this.label1.Size = new System.Drawing.Size(761, 160);
             this.label1.TabIndex = 4;
+            // 
+            // infoButton
+            // 
+            this.infoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoButton.BackColor = System.Drawing.Color.LightGray;
+            this.infoButton.FlatAppearance.BorderSize = 0;
+            this.infoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.infoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.infoButton.Image = global::W10DebloatingTool.Properties.Resources._1439414004_sign_info;
+            this.infoButton.Location = new System.Drawing.Point(696, 461);
+            this.infoButton.Name = "infoButton";
+            this.infoButton.Size = new System.Drawing.Size(26, 26);
+            this.infoButton.TabIndex = 5;
+            this.infoButton.UseVisualStyleBackColor = false;
+            this.infoButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // servicesButton
+            // 
+            this.servicesButton.BackColor = System.Drawing.Color.DimGray;
+            this.servicesButton.FlatAppearance.BorderSize = 0;
+            this.servicesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.servicesButton.Font = new System.Drawing.Font("Segoe UI Semilight", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.servicesButton.ForeColor = System.Drawing.Color.White;
+            this.servicesButton.Location = new System.Drawing.Point(556, 0);
+            this.servicesButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.servicesButton.Name = "servicesButton";
+            this.servicesButton.Size = new System.Drawing.Size(178, 44);
+            this.servicesButton.TabIndex = 1;
+            this.servicesButton.Text = "Services";
+            this.servicesButton.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(777, 578);
+            this.ClientSize = new System.Drawing.Size(734, 499);
+            this.Controls.Add(this.infoButton);
             this.Controls.Add(this.saveLogsCheckbox);
             this.Controls.Add(this.languagesCombo);
             this.Controls.Add(this.letsgoButton);
+            this.Controls.Add(this.servicesButton);
             this.Controls.Add(this.ergonomyButton);
             this.Controls.Add(this.appsButton);
             this.Controls.Add(this.privacyButton);
@@ -187,5 +224,7 @@
         private System.Windows.Forms.CheckBox saveLogsCheckbox;
         private System.Windows.Forms.Button ergonomyButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button infoButton;
+        private System.Windows.Forms.Button servicesButton;
     }
 }

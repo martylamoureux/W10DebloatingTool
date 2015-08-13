@@ -22,6 +22,14 @@ namespace W10DebloatingTool
         {
             IStrings strings = Internationalization.Strings;
             this.lockscreen.Text = strings.NoLockscreen;
+            this.godmode.Text = strings.EnableGodMode;
+            this.tilesStart.Text = strings.NoTilesOnStartMenu;
+            this.searchBar.Text = strings.SearchBar;
+            
+            searchBarCombo.Items.Clear();
+            searchBarCombo.Items.Add(strings.DisableIt);
+            searchBarCombo.Items.Add(strings.AsButton);
+            searchBarCombo.Items.Add(strings.AsBar);
         }
 
         public List<string> Collect()
@@ -29,8 +37,21 @@ namespace W10DebloatingTool
             List<string> res = new List<string>();
 
             if (lockscreen.Checked) res.Add("no_lockscreen");
+            if (godmode.Checked) res.Add("godmode");
+            if (tilesStart.Checked) res.Add("tiles_start");
+            if (searchBar.Checked)
+            {
+                if (searchBarCombo.SelectedIndex == 0) res.Add("searchbar_disabled");
+                if (searchBarCombo.SelectedIndex == 1) res.Add("searchbar_button");
+                if (searchBarCombo.SelectedIndex == 2) res.Add("searchbar_bar");
+            }
 
             return res;
-        } 
+        }
+
+        private void ErgonomyForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

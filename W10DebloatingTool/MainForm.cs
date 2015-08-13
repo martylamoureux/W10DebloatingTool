@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,7 @@ namespace W10DebloatingTool
             InitializeComponent();
             RegisterView(new PrivacyForm(), privacyButton);
             RegisterView(new ApplicationsForm(), appsButton);
+            RegisterView(new ServicesForm(), servicesButton);
             RegisterView(new ErgonomyForm(), ergonomyButton);
             AdaptButtons();
             LoadTranslation();
@@ -57,6 +59,8 @@ namespace W10DebloatingTool
 
             this.letsgoButton.Text = strings.LetsGo.ToUpper();
             this.saveLogsCheckbox.Text = strings.SaveLogs;
+
+            // this.infoButton.Text = strings.Informations;
 
             // Save Logs checkbox position
             int x = (letsgoButton.Left + letsgoButton.Width) - saveLogsCheckbox.Width;
@@ -152,6 +156,7 @@ namespace W10DebloatingTool
 
         private void letsgoButton_Click(object sender, EventArgs e)
         {
+
             List<string> bag = new List<string>();
 
             foreach (Form form in panelForms.Values)
@@ -159,8 +164,21 @@ namespace W10DebloatingTool
                 bag.AddRange((IEnumerable<string>) form.GetType().GetMethod("Collect").Invoke(form, new object[0]));
             }
 
+            if (bag.Count == 0)
+            {
+                Utils.Info(Internationalization.Strings.NothingToDo);
+                return;
+            }
+
+            Utils.Info(Internationalization.Strings.ProcessingWillTakeAWhile);
+
             Engine engine = new Engine(bag.ToArray(), this.saveLogsCheckbox.Checked);
-            engine.Run();
+            engine.Run(this);
+
+            Utils.Info(Internationalization.Strings.RestartComputer);
+
+            Process.Start("shutdown", "/r /t 0");
+
         }
 
         private void saveLogsCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -192,6 +210,11 @@ namespace W10DebloatingTool
         {
             letsgoButton.ForeColor = backColor;
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new InfoForm().ShowDialog();
         }
     }
 }

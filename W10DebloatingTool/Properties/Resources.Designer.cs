@@ -59,5 +59,90 @@ namespace W10DebloatingTool.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1439414004_sign_info {
+            get {
+                object obj = ResourceManager.GetObject("1439414004_sign-info", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap apercu {
+            get {
+                object obj = ResourceManager.GetObject("apercu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap information {
+            get {
+                object obj = ResourceManager.GetObject("information", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à @echo off
+        ///
+        ///cls
+        ///
+        /// 
+        ///
+        ///set x86=&quot;%SYSTEMROOT%\System32\OneDriveSetup.exe&quot;
+        ///
+        ///set x64=&quot;%SYSTEMROOT%\SysWOW64\OneDriveSetup.exe&quot;
+        ///
+        /// 
+        ///
+        ///echo Closing OneDrive process.
+        ///
+        ///echo.
+        ///
+        ///taskkill /f /im OneDrive.exe &gt; NUL 2&gt;&amp;1
+        ///
+        ///ping 127.0.0.1 -n 5 &gt; NUL 2&gt;&amp;1
+        ///
+        /// 
+        ///
+        ///echo Uninstalling OneDrive.
+        ///
+        ///echo.
+        ///
+        ///if exist %x64% (
+        ///
+        ///%x64% /uninstall
+        ///
+        ///) else (
+        ///
+        ///%x86% /uninstall
+        ///
+        ///)
+        ///
+        ///ping 127.0.0.1 -n 5 &gt; NUL 2&gt;&amp;1
+        ///
+        /// 
+        ///
+        ///echo Removing OneDrive leftovers.
+        ///
+        ///echo.
+        ///
+        ///rd &quot;%USERPROFILE%\OneDrive&quot; /Q /S &gt; NUL 2&gt;&amp;1
+        ///
+        ///r [le reste de la chaîne a été tronqué]&quot;;.
+        /// </summary>
+        internal static string onedrive {
+            get {
+                return ResourceManager.GetString("onedrive", resourceCulture);
+            }
+        }
     }
 }

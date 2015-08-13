@@ -20,13 +20,17 @@ namespace W10DebloatingTool
 
         public void LoadTranslation()
         {
+            IStrings strings = Internationalization.Strings;
 
+            this.adsId.Text = strings.UseAdsId;
+            this.accessLang.Text = strings.AllowSitesToAccessMyLanguage;
         }
 
         public List<string> Collect()
         {
             List<string> res = new List<string>();
-
+            if (adsId.Checked) res.Add("use_ads_id");
+            if (accessLang.Checked) res.Add("access_lang");
             return res;
         } 
     }

@@ -246,6 +246,14 @@ namespace W10DebloatingTool.i18n
             }
         }
 
+        public string Services
+        {
+            get
+            {
+                return "Services";
+            }
+        }
+
         public string Ergonomy
         {
             get
@@ -265,6 +273,162 @@ namespace W10DebloatingTool.i18n
         public string NotWindows10Error
         {
             get { return "Ce programme est conçu pour être executé sur Windows 10."; }
+        }
+
+        public string Informations
+        {
+            get
+            {
+                return "Informations";
+            }
+        }
+
+        public string Version
+        {
+            get
+            {
+                return "Version {0}";
+            }
+        }
+
+        public string Close
+        {
+            get
+            {
+                return "Fermer";
+            }
+        }
+
+        public string UseAdsId
+        {
+            get {
+                return "Utilise mon identifiant pour les publicités";
+            }
+        }
+
+        public string AllowSitesToAccessMyLanguage
+        {
+            get
+            {
+                return "Autoriser les sites internets à détecter à ma langue";
+            }
+        }
+
+        public string DisableSmartScreen
+        {
+            get
+            {
+                return "Désactiver SmartScreen";
+            }
+        }
+
+        public string DisablePhoneServices
+        {
+            get
+            {
+                return "Désactiver les services téléphoniques";
+            }
+        }
+
+        public string DisableBiometricSystem
+        {
+            get
+            {
+                return "Désactiver le système biométrique";
+            }
+        }
+
+        public string DisableDiagTrack
+        {
+            get
+            {
+                return "Désactiver DiagTrack";
+            }
+        }
+
+        public string DisableAutoLogger
+        {
+            get
+            {
+                return "Désactiver AutoLogger";
+            }
+        }
+
+        public string DisableDmwAppPushService
+        {
+            get
+            {
+                return "Désactiver DmwAppPushService";
+            }
+        }
+
+        public string BlockTrackingServers
+        {
+            get
+            {
+                return "Désactiver les serveurs de traçage";
+            }
+        }
+
+        public string NoTilesOnStartMenu
+        {
+            get
+            {
+                return "Désactiver les tuiles dans le Menu Démarrer";
+            }
+        }
+
+        public string SearchBar
+        {
+            get
+            {
+                return "La barre de recherche dans la barre des tâches :";
+            }
+        }
+
+        public string DisableIt
+        {
+            get { return "La Désactiver"; }
+        }
+
+        public string AsButton
+        {
+            get { return "Comme bouton"; }
+        }
+
+        public string AsBar
+        {
+            get { return "Comme barre"; }
+        }
+
+        public string EnableGodMode
+        {
+            get { return "Activer le Mode Dieu"; }
+        }
+
+        public string NothingToDo
+        {
+            get
+            {
+                return "Rien à faire !\n\nVeuillez cocher au moins une option.";
+            }
+        }
+
+        public string RestartComputer
+        {
+            get
+            {
+                return "Voilà c'est terminé !\nIl faut maintenant redémarrer votre ordinateur pour finaliser les modifications.\nEnregistrez tous vos documents et cliquez sur OK pour redémarrer.";
+            }
+        }
+
+        public string ProcessingWillTakeAWhile
+        {
+            get
+            {
+                return
+                    "Le programme va maintenant appliquer les modifications.\nCette opération peut prendre du temps et l'application va se figer le temps de tout faire.";
+            }
         }
     }
 }

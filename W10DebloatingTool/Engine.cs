@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Management.Automation;
 using System.Text;
+using System.Windows.Forms;
 using Microsoft.Win32;
+using W10DebloatingTool.i18n;
 
 namespace W10DebloatingTool
 {
@@ -24,20 +28,26 @@ namespace W10DebloatingTool
 
         protected void WriteLog(string text)
         {
+            if (!saveLogs)
+                return;
             log.AppendLine(string.Format("[{0} {1}] {2}", DateTime.Now.ToShortDateString(),
                 DateTime.Now.ToLongTimeString(), text));
         }
 
         protected void FlushLog()
         {
-            string filename = string.Format("{0}_{1}.txt", DateTime.Now.ToShortDateString().Replace('/', '-'),
+            if (!saveLogs)
+                return;
+            string filename = string.Format("W10DT_{0}_{1}.txt", DateTime.Now.ToShortDateString().Replace('/', '-'),
                 DateTime.Now.ToLongTimeString().Replace(':', '-'));
             System.IO.File.WriteAllText(System.IO.Path.Combine(Properties.Settings.Default.LogsPath, filename), log.ToString());
             log.Clear();
         }
 
-        public void Run()
+        public void Run(Form parent)
         {
+            if (tags.Length == 0)
+                return;
             executionTime = DateTime.Now;
             WriteLog("== Started execution");
             foreach (string tag in tags)
@@ -52,8 +62,11 @@ namespace W10DebloatingTool
             switch (tag)
             {
                 case "remove_cortana":
+                    EditRegistry(Registry.LocalMachine,
+                        @"SOFTWARE\Policies\Microsoft\Windows\Windows Search", "AlowCortana", 0);
                     break;
                 case "remove_oneDrive":
+                    RunBatch("@echo off cls set x86=\"%SYSTEMROOT%\\System32\\OneDriveSetup.exe\" set x64=\"%SYSTEMROOT%\\SysWOW64\\OneDriveSetup.exe\" echo Closing OneDrive process. echo. taskkill /f /im OneDrive.exe > NUL 2>&1 ping 127.0.0.1 -n 5 > NUL 2>&1 echo Uninstalling OneDrive. echo. if exist %x64% ( %x64% /uninstall ) else ( %x86% /uninstall ) ping 127.0.0.1 -n 5 > NUL 2>&1 echo Removing OneDrive leftovers. echo. rd \"%USERPROFILE%\\OneDrive\" /Q /S > NUL 2>&1 rd \"C:\\OneDriveTemp\" /Q /S > NUL 2>&1 rd \"%LOCALAPPDATA%\\Microsoft\\OneDrive\" /Q /S > NUL 2>&1 rd \"%PROGRAMDATA%\\Microsoft OneDrive\" /Q /S > NUL 2>&1 echo Removeing OneDrive from the Explorer Side Panel. echo. REG DELETE \"HKEY_CLASSES_ROOT\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}\" /f > NUL 2>&1 REG DELETE \"HKEY_CLASSES_ROOT\\Wow6432Node\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}\" /f > NUL 2>&1");
                     break;
                 case "remove_builder":
                     RemoveMetroApp("Microsoft.3DBuilder");
@@ -122,8 +135,124 @@ namespace W10DebloatingTool
                     RunPowershell("Get-AppxPackage | Remove-AppxPackage");
                     break;
                 case "no_lockscreen":
-                    EditLocalMachineRegistry(Registry.LocalMachine,
+                    EditRegistry(Registry.LocalMachine,
                         @"SOFTWARE\Policies\Microsoft\Windows\Personalization", "NoLockScreen", 1);
+                    break;
+                case "use_ads_id":
+                    EditRegistry(Registry.CurrentUser,
+                        @"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled", 0);
+                    break;
+                case "access_lang":
+                    EditRegistry(Registry.CurrentUser,
+                        @"Control Panel\International\User Profile", "HttpAcceptLanguageOptOut", 1);
+                    break;
+                case "godmode":
+                    // TODO
+
+                    break;
+                case "tiles_start":
+                    // TODO
+
+                    break;
+                case "searchbar_disabled":
+                    EditRegistry(Registry.CurrentUser,
+                        @"SOFTWARE\Microsoft\Windows\CurrentVersion\Search", "SearchboxTaskbarMode", 0);
+                    break;
+                case "searchbar_button":
+                    EditRegistry(Registry.CurrentUser,
+                        @"SOFTWARE\Microsoft\Windows\CurrentVersion\Search", "SearchboxTaskbarMode", 1);
+                    break;
+                case "searchbar_bar":
+                    EditRegistry(Registry.CurrentUser,
+                        @"SOFTWARE\Microsoft\Windows\CurrentVersion\Search", "SearchboxTaskbarMode", 2);
+                    break;
+                case "smartscreen":
+                    EditRegistry(Registry.LocalMachine,
+                        @"SOFTWARE\Policies\Microsoft\Windows\System", "EnableSmartScreen", 0);
+                    break;
+                case "phone_services":
+                    EditRegistry(Registry.LocalMachine,
+                        @"SYSTEM\CurrentControlSet\Services\TapiSrv", "Start", 4);
+                    break;
+                case "biometric":
+                    EditRegistry(Registry.LocalMachine,
+                        @"SYSTEM\CurrentControlSet\Services\WbioSrvc", "Start", 4);
+                    break;
+                case "diagtrack":
+                    RunPowershell("sc delete DiagTrack");
+                    break;
+                case "autologger":
+                    RunPowershell("echo \"\" > C:\\ProgramData\\Microsoft\\Diagnosis\\ETLLogs\\AutoLogger\\AutoLogger-Diagtrack-Listener.etl");
+                    break;
+                case "dmwapppushservice":
+                    RunPowershell("sc delete dmwappushservice");
+                    break;
+                case "tracking_servers":
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "# W10 Debloating Tool - " + Internationalization.Strings.BlockTrackingServers);
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 vortex.data.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 vortex-win.data.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 telecommand.telemetry.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 telecommand.telemetry.microsoft.com.nsatc.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 oca.telemetry.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 oca.telemetry.microsoft.com.nsatc.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 sqm.telemetry.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 sqm.telemetry.microsoft.com.nsatc.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 watson.telemetry.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 watson.telemetry.microsoft.com.nsatc.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 redir.metaservices.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 choice.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 choice.microsoft.com.nsatc.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 df.telemetry.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 reports.wes.df.telemetry.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 wes.df.telemetry.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 services.wes.df.telemetry.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 sqm.df.telemetry.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 telemetry.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 watson.ppe.telemetry.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 telemetry.appex.bing.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 telemetry.urs.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 telemetry.appex.bing.net:443");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 settings-sandbox.data.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 vortex-sandbox.data.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 survey.watson.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 watson.live.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 watson.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 statsfe2.ws.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 corpext.msitadfs.glbdns2.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 compatexchange.cloudapp.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 cs1.wpc.v0cdn.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 a-0001.a-msedge.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 statsfe2.update.microsoft.com.akadns.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 sls.update.microsoft.com.akadns.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 fe2.update.microsoft.com.akadns.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 diagnostics.support.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 corp.sts.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 statsfe1.ws.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 pre.footprintpredict.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 i1.services.social.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 i1.services.social.microsoft.com.nsatc.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 feedback.windows.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 feedback.microsoft-hohm.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 feedback.search.microsoft.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 fe2.update.microsoft.com.akadns.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", " ");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 cs1.wpc.v0cdn.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 ");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 rad.msn.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 preview.msn.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 ad.doubleclick.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 ads.msn.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 ads1.msads.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", " ");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 ads1.msn.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 a.ads1.msn.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 a.ads2.msn.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 adnexus.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 adnxs.com");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 az361816.vo.msecnd.net");
+                    AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 az512334.vo.msecnd.net");
                     break;
             }
             WriteLog("==== Finished " + tag);
@@ -156,7 +285,7 @@ namespace W10DebloatingTool
             RunPowershell(cmd);
         }
 
-        public bool EditLocalMachineRegistry(RegistryKey baseRegistryKey, string key, string subkey, object value)
+        public bool EditRegistry(RegistryKey baseRegistryKey, string key, string subkey, object value)
         {
             WriteLog("Editing Registry Key : " + baseRegistryKey.Name + @"\" + key + "::" + subkey + "=" + value);
             try
@@ -170,6 +299,22 @@ namespace W10DebloatingTool
             {
                 return false;
             }
+        }
+
+        public void RunBatch(string script)
+        {
+            string filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "w10dt.bat");
+
+            File.WriteAllText(filename, script);
+            Process proc = new Process { StartInfo = { FileName = filename, WindowStyle = ProcessWindowStyle.Minimized } };
+            proc.Start();
+            proc.WaitForExit(1000 * 60);
+            File.Delete(filename);
+        }
+
+        public void AppendLine(string filename, string text)
+        {
+            File.AppendAllLines(filename, new[] {text});
         }
     }
 }

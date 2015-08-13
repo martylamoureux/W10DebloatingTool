@@ -243,6 +243,22 @@ namespace W10DebloatingTool.i18n
             }
         }
 
+        public string UnselectAllApps
+        {
+            get
+            {
+                return "Uncheck All Apps";
+            }
+        }
+
+        public string Services
+        {
+            get
+            {
+                return "Services";
+            }
+        }
+
         public string Ergonomy
         {
             get
@@ -259,11 +275,160 @@ namespace W10DebloatingTool.i18n
             }
         }
 
-        public string UnselectAllApps
+        public string Informations
         {
             get
             {
-                return "Uncheck All Apps";
+                return "Information";
+            }
+        }
+
+        public string Version
+        {
+            get
+            {
+                return "Version {0}";
+            }
+        }
+
+        public string Close
+        {
+            get
+            {
+                return "Close";
+            }
+        }
+
+        public string UseAdsId
+        {
+            get
+            {
+                return "Use my ID for advertising";
+            }
+        }
+
+        public string AllowSitesToAccessMyLanguage
+        {
+            get
+            {
+                return "Allow websites to detect my language";
+            }
+        }
+
+        public string DisableSmartScreen
+        {
+            get
+            {
+                return "Disable SmartScreen";
+            }
+        }
+
+        public string DisablePhoneServices
+        {
+            get
+            {
+                return "Disable phone services";
+            }
+        }
+
+        public string DisableBiometricSystem
+        {
+            get
+            {
+                return "Disable biometric system";
+            }
+        }
+
+        public string DisableDiagTrack
+        {
+            get
+            {
+                return "Disable DiagTrack";
+            }
+        }
+
+        public string DisableAutoLogger
+        {
+            get
+            {
+                return "Disable AutoLogger";
+            }
+        }
+
+        public string DisableDmwAppPushService
+        {
+            get
+            {
+                return "Disable DmwAppPushService";
+            }
+        }
+
+        public string BlockTrackingServers
+        {
+            get
+            {
+                return "Block Tracking Servers";
+            }
+        }
+
+        public string NoTilesOnStartMenu
+        {
+            get
+            {
+                return "Disable tiles in the Start Menu";
+            }
+        }
+
+        public string SearchBar
+        {
+            get
+            {
+                return "The search bar in the taskbar :";
+            }
+        }
+
+        public string DisableIt
+        {
+            get { return "Disable it"; }
+        }
+
+        public string AsButton
+        {
+            get { return "As a Button"; }
+        }
+
+        public string AsBar
+        {
+            get { return "As a Bar"; }
+        }
+
+        public string EnableGodMode
+        {
+            get { return "Enable God Mode"; }
+        }
+
+        public string NothingToDo
+        {
+            get
+            {
+                return "Nothing to do ! Please check at least one option.";
+            }
+        }
+
+        public string RestartComputer
+        {
+            get
+            {
+                return "It's done !\nNow your computer must restart to finish the changes.\nPlease save all your documents and press OK to restart now.";
+            }
+        }
+
+        public string ProcessingWillTakeAWhile
+        {
+            get
+            {
+                return
+                    "The software will now process the changes. It may take a while and the software will freeze during the operation.";
             }
         }
     }
