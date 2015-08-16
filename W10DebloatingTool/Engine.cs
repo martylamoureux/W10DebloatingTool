@@ -51,7 +51,16 @@ namespace W10DebloatingTool
             executionTime = DateTime.Now;
             WriteLog("== Started execution");
             foreach (string tag in tags)
-                RunTag(tag);
+            {
+                try
+                {
+                    RunTag(tag);
+                }
+                catch (Exception exception)
+                {
+                    WriteLog("An exception occured while running " + tag + ":" + Environment.NewLine + exception.Message + Environment.NewLine + exception.ToString());
+                }
+            }
             WriteLog("== Finished execution");
             FlushLog();
         }
@@ -147,8 +156,11 @@ namespace W10DebloatingTool
                         @"Control Panel\International\User Profile", "HttpAcceptLanguageOptOut", 1);
                     break;
                 case "godmode":
-                    // TODO
-
+                    EditRegistry(Registry.CurrentUser,
+                       @"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "HideFileExt", 0);
+                    RunBatch("mkdir \"%USERPROFILE%\\Desktop\\GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}\"");
+                    EditRegistry(Registry.CurrentUser,
+                       @"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "HideFileExt", 1);
                     break;
                 case "tiles_start":
                     // TODO
@@ -180,13 +192,9 @@ namespace W10DebloatingTool
                     EditRegistry(Registry.LocalMachine,
                         @"SYSTEM\CurrentControlSet\Services\WbioSrvc", "Start", 4);
                     break;
-                case "diagtrack":
+                case "disable_tracking_services":
                     RunPowershell("sc delete DiagTrack");
-                    break;
-                case "autologger":
                     RunPowershell("echo \"\" > C:\\ProgramData\\Microsoft\\Diagnosis\\ETLLogs\\AutoLogger\\AutoLogger-Diagtrack-Listener.etl");
-                    break;
-                case "dmwapppushservice":
                     RunPowershell("sc delete dmwappushservice");
                     break;
                 case "tracking_servers":

@@ -32,6 +32,7 @@ namespace W10DebloatingTool
             this.button1.Text = strings.Close;
             this.Text = strings.Informations;
             this.aboutText.Text = strings.AboutText;
+            this.website.Text = strings.Website;
 
             this.titleLabel.Text = Application.ProductName;
             string[] ver = Application.ProductVersion.Split('.');
@@ -72,6 +73,11 @@ namespace W10DebloatingTool
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("http://www.apache.org/licenses/LICENSE-2.0.html");
+        }
+
+        private void website_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("http://w10.w4rell.fr");
         }
     }
 }

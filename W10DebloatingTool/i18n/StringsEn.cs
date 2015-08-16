@@ -22,7 +22,7 @@ namespace W10DebloatingTool.i18n
 
         public string Privacy
         {
-            get { return "Privacy"; }
+            get { return "Parameters"; }
         }
 
         public string Applications
@@ -303,7 +303,7 @@ namespace W10DebloatingTool.i18n
         {
             get
             {
-                return "Use my ID for advertising";
+                return "Prevent the use of my ID for advertising";
             }
         }
 
@@ -311,7 +311,7 @@ namespace W10DebloatingTool.i18n
         {
             get
             {
-                return "Allow websites to detect my language";
+                return "Block websites to detect my language";
             }
         }
 
@@ -327,7 +327,7 @@ namespace W10DebloatingTool.i18n
         {
             get
             {
-                return "Disable phone services";
+                return "Prevent the phone data spying";
             }
         }
 
@@ -335,31 +335,15 @@ namespace W10DebloatingTool.i18n
         {
             get
             {
-                return "Disable biometric system";
+                return "Prevent the biometric data spying";
             }
         }
 
-        public string DisableDiagTrack
+        public string DisableTrackingServices
         {
             get
             {
-                return "Disable DiagTrack";
-            }
-        }
-
-        public string DisableAutoLogger
-        {
-            get
-            {
-                return "Disable AutoLogger";
-            }
-        }
-
-        public string DisableDmwAppPushService
-        {
-            get
-            {
-                return "Disable DmwAppPushService";
+                return "Disable tracking services";
             }
         }
 
@@ -534,7 +518,7 @@ namespace W10DebloatingTool.i18n
         {
             get
             {
-                return "Disabled advanced tracking";
+                return "Disable tracking (in-depth method)";
             }
         }
 
@@ -544,6 +528,59 @@ namespace W10DebloatingTool.i18n
             {
                 return "W10 Debloating Tool is a small application whose goal is to get rid of the abusive spying on Microsoft Windows 10, and allows you also to uninstall some base applications or do some ergonomic changes.\n\nThank you to have downloaded our tool!\nDon't hesitate to share it, it's free and open-source!";
             }
+        }
+
+        public string Website
+        {
+            get { return "Website"; }
+        }
+
+        public string Help
+        {
+            get { return "Help"; }
+        }
+
+        public string SmartScreenTip
+        {
+            get { return "Feature which prevent you to use some applications."; }
+        }
+
+        public string GodModeTip
+        {
+            get
+            {
+                return
+                    "Add a shortcut on your desktop allowing you to manage every parameter of your computer.";
+            }
+        }
+
+        public string LockscreenTip
+        {
+            get { return "Remove the screen before the login screen."; }
+        }
+
+        public string SearchBarTip
+        {
+            get { return "Change the shape of the search bar (Cortana)"; }
+        }
+
+        public string DeleteAllMetroAppsTip
+        {
+            get
+            {
+                return
+                    "WARNING : Experimental feature, this action cannot be undone but allows you to get rid of almost all of the Metro apps.";
+            }
+        }
+
+        public string DisableSamplesTip
+        {
+            get { return "Prevent the data collected about your every-day use to be sent to Microsoft."; }
+        }
+
+        public string NotAvailableTip
+        {
+            get { return "This feature is not ready yet !\n\nIt will be available in a future version."; }
         }
     }
 }

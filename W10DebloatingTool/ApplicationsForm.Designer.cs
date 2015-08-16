@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cortana = new System.Windows.Forms.CheckBox();
             this.oneDrive = new System.Windows.Forms.CheckBox();
             this.builder = new System.Windows.Forms.CheckBox();
@@ -55,6 +56,7 @@
             this.allMetro = new System.Windows.Forms.CheckBox();
             this.selectAllApps = new System.Windows.Forms.Button();
             this.unselectAllApps = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // cortana
@@ -336,7 +338,6 @@
             // edge
             // 
             this.edge.AutoSize = true;
-            this.edge.Enabled = false;
             this.edge.Location = new System.Drawing.Point(12, 188);
             this.edge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.edge.Name = "edge";
@@ -396,6 +397,14 @@
             this.unselectAllApps.Text = "Unselect all apps";
             this.unselectAllApps.UseVisualStyleBackColor = true;
             this.unselectAllApps.Click += new System.EventHandler(this.unselectAllApps_Click);
+            // 
+            // toolTip
+            // 
+            this.toolTip.AutoPopDelay = 10000;
+            this.toolTip.InitialDelay = 200;
+            this.toolTip.IsBalloon = true;
+            this.toolTip.ReshowDelay = 100;
+            this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
             // ApplicationsForm
             // 
@@ -469,5 +478,6 @@
         private System.Windows.Forms.CheckBox allMetro;
         private System.Windows.Forms.Button selectAllApps;
         private System.Windows.Forms.Button unselectAllApps;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }

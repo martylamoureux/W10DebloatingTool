@@ -50,6 +50,12 @@ namespace W10DebloatingTool
 
             this.selectAllApps.Text = strings.SelectAllApps;
             this.unselectAllApps.Text = strings.UnselectAllApps;
+
+            this.toolTip.ToolTipTitle = strings.Help;
+            this.toolTip.SetToolTip(this.allMetro, strings.DeleteAllMetroAppsTip);
+
+            DisableControl(edge);
+            DisableControl(cortana);
         }
 
         public List<string> Collect()
@@ -139,6 +145,23 @@ namespace W10DebloatingTool
             this.phoneCompanion.Checked = false;
             this.soundRecord.Checked = false;
             this.edge.Checked = false;
+        }
+
+        public void DisableControl(CheckBox control)
+        {
+            control.ForeColor = ControlPaint.Light(BackColor);
+            control.Cursor = Cursors.No;
+            toolTip.SetToolTip(control, Internationalization.Strings.NotAvailableTip);
+
+            control.CheckedChanged += delegate(object sender, EventArgs args)
+            {
+                CheckBox ctl = (CheckBox) sender;
+                if (ctl.Checked)
+                {
+                    ctl.Checked = false;
+                    Utils.Warning(Internationalization.Strings.NotAvailableTip);
+                }
+            };
         }
     }
 }

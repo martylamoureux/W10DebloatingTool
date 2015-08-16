@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.smartscreen = new System.Windows.Forms.CheckBox();
             this.phone = new System.Windows.Forms.CheckBox();
             this.biometric = new System.Windows.Forms.CheckBox();
-            this.diagtrack = new System.Windows.Forms.CheckBox();
-            this.autologger = new System.Windows.Forms.CheckBox();
-            this.dmwapppushservice = new System.Windows.Forms.CheckBox();
+            this.disableTracking = new System.Windows.Forms.CheckBox();
             this.trackingServers = new System.Windows.Forms.CheckBox();
             this.uncheckAll = new System.Windows.Forms.Button();
             this.checkAll = new System.Windows.Forms.Button();
             this.disableAdvancedTracking = new System.Windows.Forms.CheckBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // smartscreen
@@ -70,40 +70,20 @@
             this.biometric.Text = "Disable Biometric";
             this.biometric.UseVisualStyleBackColor = true;
             // 
-            // diagtrack
+            // disableTracking
             // 
-            this.diagtrack.AutoSize = true;
-            this.diagtrack.Location = new System.Drawing.Point(12, 140);
-            this.diagtrack.Name = "diagtrack";
-            this.diagtrack.Size = new System.Drawing.Size(135, 23);
-            this.diagtrack.TabIndex = 1;
-            this.diagtrack.Text = "Disable DiagTrack";
-            this.diagtrack.UseVisualStyleBackColor = true;
-            // 
-            // autologger
-            // 
-            this.autologger.AutoSize = true;
-            this.autologger.Location = new System.Drawing.Point(12, 169);
-            this.autologger.Name = "autologger";
-            this.autologger.Size = new System.Drawing.Size(149, 23);
-            this.autologger.TabIndex = 1;
-            this.autologger.Text = "Disable AutoLogger";
-            this.autologger.UseVisualStyleBackColor = true;
-            // 
-            // dmwapppushservice
-            // 
-            this.dmwapppushservice.AutoSize = true;
-            this.dmwapppushservice.Location = new System.Drawing.Point(12, 198);
-            this.dmwapppushservice.Name = "dmwapppushservice";
-            this.dmwapppushservice.Size = new System.Drawing.Size(205, 23);
-            this.dmwapppushservice.TabIndex = 1;
-            this.dmwapppushservice.Text = "Disable DmwAppPushService";
-            this.dmwapppushservice.UseVisualStyleBackColor = true;
+            this.disableTracking.AutoSize = true;
+            this.disableTracking.Location = new System.Drawing.Point(12, 140);
+            this.disableTracking.Name = "disableTracking";
+            this.disableTracking.Size = new System.Drawing.Size(135, 23);
+            this.disableTracking.TabIndex = 1;
+            this.disableTracking.Text = "Disable DiagTrack";
+            this.disableTracking.UseVisualStyleBackColor = true;
             // 
             // trackingServers
             // 
             this.trackingServers.AutoSize = true;
-            this.trackingServers.Location = new System.Drawing.Point(12, 227);
+            this.trackingServers.Location = new System.Drawing.Point(12, 169);
             this.trackingServers.Name = "trackingServers";
             this.trackingServers.Size = new System.Drawing.Size(162, 23);
             this.trackingServers.TabIndex = 1;
@@ -149,12 +129,20 @@
             // disableAdvancedTracking
             // 
             this.disableAdvancedTracking.AutoSize = true;
-            this.disableAdvancedTracking.Location = new System.Drawing.Point(12, 256);
+            this.disableAdvancedTracking.Location = new System.Drawing.Point(12, 198);
             this.disableAdvancedTracking.Name = "disableAdvancedTracking";
             this.disableAdvancedTracking.Size = new System.Drawing.Size(190, 23);
             this.disableAdvancedTracking.TabIndex = 1;
             this.disableAdvancedTracking.Text = "Disable Advanced Tracking";
             this.disableAdvancedTracking.UseVisualStyleBackColor = true;
+            // 
+            // toolTip
+            // 
+            this.toolTip.AutoPopDelay = 10000;
+            this.toolTip.InitialDelay = 200;
+            this.toolTip.IsBalloon = true;
+            this.toolTip.ReshowDelay = 100;
+            this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
             // ServicesForm
             // 
@@ -166,9 +154,7 @@
             this.Controls.Add(this.checkAll);
             this.Controls.Add(this.disableAdvancedTracking);
             this.Controls.Add(this.trackingServers);
-            this.Controls.Add(this.dmwapppushservice);
-            this.Controls.Add(this.autologger);
-            this.Controls.Add(this.diagtrack);
+            this.Controls.Add(this.disableTracking);
             this.Controls.Add(this.biometric);
             this.Controls.Add(this.phone);
             this.Controls.Add(this.smartscreen);
@@ -188,12 +174,11 @@
         private System.Windows.Forms.CheckBox smartscreen;
         private System.Windows.Forms.CheckBox phone;
         private System.Windows.Forms.CheckBox biometric;
-        private System.Windows.Forms.CheckBox diagtrack;
-        private System.Windows.Forms.CheckBox autologger;
-        private System.Windows.Forms.CheckBox dmwapppushservice;
+        private System.Windows.Forms.CheckBox disableTracking;
         private System.Windows.Forms.CheckBox trackingServers;
         private System.Windows.Forms.Button uncheckAll;
         private System.Windows.Forms.Button checkAll;
         private System.Windows.Forms.CheckBox disableAdvancedTracking;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }

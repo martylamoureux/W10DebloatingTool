@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lockscreen = new System.Windows.Forms.CheckBox();
             this.godmode = new System.Windows.Forms.CheckBox();
             this.tilesStart = new System.Windows.Forms.CheckBox();
@@ -35,6 +36,7 @@
             this.searchBarCombo = new System.Windows.Forms.ComboBox();
             this.uncheckAll = new System.Windows.Forms.Button();
             this.checkAll = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lockscreen
@@ -50,7 +52,6 @@
             // godmode
             // 
             this.godmode.AutoSize = true;
-            this.godmode.Enabled = false;
             this.godmode.Location = new System.Drawing.Point(12, 88);
             this.godmode.Name = "godmode";
             this.godmode.Size = new System.Drawing.Size(134, 23);
@@ -125,6 +126,14 @@
             this.checkAll.UseVisualStyleBackColor = true;
             this.checkAll.Click += new System.EventHandler(this.checkAll_Click);
             // 
+            // toolTip
+            // 
+            this.toolTip.AutoPopDelay = 10000;
+            this.toolTip.InitialDelay = 200;
+            this.toolTip.IsBalloon = true;
+            this.toolTip.ReshowDelay = 100;
+            this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
             // ErgonomyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -158,5 +167,6 @@
         private System.Windows.Forms.ComboBox searchBarCombo;
         private System.Windows.Forms.Button uncheckAll;
         private System.Windows.Forms.Button checkAll;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }

@@ -38,6 +38,9 @@ namespace W10DebloatingTool
             this.allowDifferedUpdates.Text = strings.AllowDifferedUpdate;
             this.disableUpdateSharing.Text = strings.DisableUpdateSharing;
             this.preventKeyboard.Text = strings.PreventKeyboard;
+
+            this.toolTip.ToolTipTitle = strings.Help;
+            this.toolTip.SetToolTip(this.disableSamples, strings.DisableSamplesTip);
         }
 
         public List<string> Collect()

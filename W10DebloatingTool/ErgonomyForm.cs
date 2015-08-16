@@ -34,6 +34,11 @@ namespace W10DebloatingTool
             searchBarCombo.Items.Add(strings.DisableIt);
             searchBarCombo.Items.Add(strings.AsButton);
             searchBarCombo.Items.Add(strings.AsBar);
+
+            this.toolTip.ToolTipTitle = strings.Help;
+            this.toolTip.SetToolTip(this.godmode, strings.GodModeTip);
+            this.toolTip.SetToolTip(this.lockscreen, strings.LockscreenTip);
+            
         }
 
         public List<string> Collect()
@@ -71,6 +76,23 @@ namespace W10DebloatingTool
         {
             foreach (CheckBox ctl in Controls.OfType<CheckBox>().Where(c => c.Visible && c.Enabled))
                 ctl.Checked = false;
+        }
+
+        public void DisableControl(CheckBox control)
+        {
+            control.ForeColor = ControlPaint.Light(ControlPaint.Dark(BackColor));
+            control.Cursor = Cursors.No;
+            toolTip.SetToolTip(control, Internationalization.Strings.NotAvailableTip);
+
+            control.CheckedChanged += delegate (object sender, EventArgs args)
+            {
+                CheckBox ctl = (CheckBox)sender;
+                if (ctl.Checked)
+                {
+                    ctl.Checked = false;
+                    Utils.Warning(Internationalization.Strings.NotAvailableTip);
+                }
+            };
         }
     }
 }

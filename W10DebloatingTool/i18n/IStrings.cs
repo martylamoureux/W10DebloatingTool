@@ -62,9 +62,7 @@ namespace W10DebloatingTool.i18n
         string DisableSmartScreen { get; }
         string DisablePhoneServices { get; }
         string DisableBiometricSystem { get; }
-        string DisableDiagTrack { get; }
-        string DisableAutoLogger { get; }
-        string DisableDmwAppPushService { get; }
+        string DisableTrackingServices { get; }
         string BlockTrackingServers { get; }
         string EnableGodMode { get; }
         string NoTilesOnStartMenu { get; }
@@ -85,5 +83,15 @@ namespace W10DebloatingTool.i18n
         string ProcessingWillTakeAWhile { get; }
         string RestartComputer { get; }
         string AboutText { get; }
+        string Website { get; }
+
+        string Help { get; }
+        string SmartScreenTip { get; }
+        string GodModeTip { get; }
+        string LockscreenTip { get; }
+        string SearchBarTip { get; }
+        string DeleteAllMetroAppsTip { get; }
+        string DisableSamplesTip { get; }
+        string NotAvailableTip { get; }
     }
 }

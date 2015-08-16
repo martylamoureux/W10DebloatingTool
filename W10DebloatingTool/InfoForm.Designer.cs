@@ -37,6 +37,7 @@
             this.languagesCombo = new System.Windows.Forms.ComboBox();
             this.aboutText = new System.Windows.Forms.Label();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.website = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,6 +148,20 @@
             this.linkLabel3.Text = "Apache License 2.0";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
+            // website
+            // 
+            this.website.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.website.AutoSize = true;
+            this.website.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.website.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.website.Location = new System.Drawing.Point(143, 603);
+            this.website.Name = "website";
+            this.website.Size = new System.Drawing.Size(55, 19);
+            this.website.TabIndex = 2;
+            this.website.TabStop = true;
+            this.website.Text = "website";
+            this.website.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.website_LinkClicked);
+            // 
             // InfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -157,6 +172,7 @@
             this.Controls.Add(this.languagesCombo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.website);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.versionLabel);
@@ -190,5 +206,6 @@
         private System.Windows.Forms.ComboBox languagesCombo;
         private System.Windows.Forms.Label aboutText;
         private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel website;
     }
 }

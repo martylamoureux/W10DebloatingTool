@@ -36,11 +36,12 @@ namespace W10DebloatingTool
             smartscreen.Text = strings.DisableSmartScreen;
             phone.Text = strings.DisablePhoneServices;
             biometric.Text = strings.DisableBiometricSystem;
-            diagtrack.Text = strings.DisableDiagTrack;
-            autologger.Text = strings.DisableAutoLogger;
-            dmwapppushservice.Text = strings.DisableDmwAppPushService;
+            disableTracking.Text = strings.DisableTrackingServices;
             trackingServers.Text = strings.BlockTrackingServers;
             disableAdvancedTracking.Text = strings.DisableAdvancedTracking;
+
+            this.toolTip.ToolTipTitle = strings.Help;
+            this.toolTip.SetToolTip(this.smartscreen, strings.SmartScreenTip);
         }
 
         public List<string> Collect()
@@ -49,9 +50,7 @@ namespace W10DebloatingTool
             if (smartscreen.Checked) res.Add("smartscreen");
             if (phone.Checked) res.Add("phone_services");
             if (biometric.Checked) res.Add("biometric");
-            if (diagtrack.Checked) res.Add("diagtrack");
-            if (autologger.Checked) res.Add("autologger");
-            if (dmwapppushservice.Checked) res.Add("dmwapppushservice");
+            if (disableTracking.Checked) res.Add("disable_tracking");
             if (trackingServers.Checked) res.Add("tracking_servers");
             if (disableAdvancedTracking.Checked) res.Add("disable_advanced_tracking");
             return res;

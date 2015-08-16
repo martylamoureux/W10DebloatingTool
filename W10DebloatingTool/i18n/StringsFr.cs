@@ -22,7 +22,7 @@ namespace W10DebloatingTool.i18n
 
         public string Privacy
         {
-            get { return "Confidentialité"; }
+            get { return "Paramètres"; }
         }
 
         public string Applications
@@ -302,7 +302,7 @@ namespace W10DebloatingTool.i18n
         public string UseAdsId
         {
             get {
-                return "Utilise mon identifiant pour les publicités";
+                return "Empêcher l'utilisation de mon ID pour les publicité";
             }
         }
 
@@ -310,7 +310,7 @@ namespace W10DebloatingTool.i18n
         {
             get
             {
-                return "Autoriser les sites à détecter à ma langue";
+                return "Interdire les sites à détecter à ma langue";
             }
         }
 
@@ -326,7 +326,7 @@ namespace W10DebloatingTool.i18n
         {
             get
             {
-                return "Désactiver les services téléphoniques";
+                return "Empêcher l'espionnage des données téléphoniques";
             }
         }
 
@@ -334,31 +334,15 @@ namespace W10DebloatingTool.i18n
         {
             get
             {
-                return "Désactiver le système biométrique";
+                return "Empêcher l'espionnage des données biométriques";
             }
         }
 
-        public string DisableDiagTrack
+        public string DisableTrackingServices
         {
             get
             {
-                return "Désactiver DiagTrack";
-            }
-        }
-
-        public string DisableAutoLogger
-        {
-            get
-            {
-                return "Désactiver AutoLogger";
-            }
-        }
-
-        public string DisableDmwAppPushService
-        {
-            get
-            {
-                return "Désactiver DmwAppPushService";
+                return "Désactiver les Services de Traçage";
             }
         }
 
@@ -366,7 +350,7 @@ namespace W10DebloatingTool.i18n
         {
             get
             {
-                return "Désactiver les serveurs de traçage";
+                return "Désactiver les Serveurs de Traçage";
             }
         }
 
@@ -533,7 +517,7 @@ namespace W10DebloatingTool.i18n
         {
             get
             {
-                return "Désactiver le traçage avancé";
+                return "Désactiver le traçage (méthode approfondie)";
             }
         }
 
@@ -543,6 +527,59 @@ namespace W10DebloatingTool.i18n
             {
                 return "W10 Debloating Tool est une petite application dont le but est de vous affranchir de l’espionnage abusif de Microsoft sur Windows 10, mais en plus de cela il vous permettra de désinstaller les applications de base et rajoute quelques choix ergonomiques.\n\nMerci d’avoir téléchargé notre outil !\nN’hésitez pas à le partager, il est gratuit et open-source!";
             }
+        }
+
+        public string Website
+        {
+            get { return "Site web"; }
+        }
+
+        public string Help
+        {
+            get { return "Aide"; }
+        }
+
+        public string SmartScreenTip
+        {
+            get { return "Option vous empêchant de lancer des applications diverses de façon injustifiée."; }
+        }
+
+        public string GodModeTip
+        {
+            get
+            {
+                return
+                    "Rajoute un raccourci sur le bureau vous permettant de mieux gérer tous les paramètres de votre ordinateur.";
+            }
+        }
+
+        public string LockscreenTip
+        {
+            get { return "Enlève l’écran qui est avant la page de connexion."; }
+        }
+
+        public string SearchBarTip
+        {
+            get { return "Modifie l’aspect de la barre de Recherche (Cortana)"; }
+        }
+
+        public string DeleteAllMetroAppsTip
+        {
+            get
+            {
+                return
+                    "ATTENTION : Fonction expérimentale, cette action est irréversible mais vous permet de vous débarrasser de la quasi-totalité des applis Metro.";
+            }
+        }
+
+        public string DisableSamplesTip
+        {
+            get { return "Empêche Microsoft de récupérer des informations sur vos habitudes et votre ordinateur."; }
+        }
+
+        public string NotAvailableTip
+        {
+            get { return "Cette option n'est pas encore prête !\n\nElle sera disponible dans une prochaine version."; }
         }
     }
 }

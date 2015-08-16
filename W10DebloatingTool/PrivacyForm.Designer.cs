@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.adsId = new System.Windows.Forms.CheckBox();
             this.accessLang = new System.Windows.Forms.CheckBox();
             this.blockLocalization = new System.Windows.Forms.CheckBox();
@@ -43,6 +44,7 @@
             this.preventKeyboard = new System.Windows.Forms.CheckBox();
             this.uncheckAll = new System.Windows.Forms.Button();
             this.checkAll = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // adsId
@@ -211,6 +213,14 @@
             this.checkAll.UseVisualStyleBackColor = true;
             this.checkAll.Click += new System.EventHandler(this.selectAllApps_Click);
             // 
+            // toolTip
+            // 
+            this.toolTip.AutoPopDelay = 10000;
+            this.toolTip.InitialDelay = 200;
+            this.toolTip.IsBalloon = true;
+            this.toolTip.ReshowDelay = 100;
+            this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
             // PrivacyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -260,5 +270,6 @@
         private System.Windows.Forms.CheckBox preventKeyboard;
         private System.Windows.Forms.Button uncheckAll;
         private System.Windows.Forms.Button checkAll;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
