@@ -431,5 +431,119 @@ namespace W10DebloatingTool.i18n
                     "The software will now process the changes. It may take a while and the software will freeze during the operation.";
             }
         }
+
+        public string BlockLocalization
+        {
+            get
+            {
+                return "Prevent access to my location";
+            }
+        }
+
+        public string BlockDevices
+        {
+            get
+            {
+                return "Prevent access to my devices";
+            }
+        }
+
+        public string PreventCortana
+        {
+            get
+            {
+                return "Prevent Cortana to know you";
+            }
+        }
+
+        public string PreventSync
+        {
+            get
+            {
+                return "Prevent devices sync";
+            }
+        }
+
+        public string DisableDefender
+        {
+            get
+            {
+                return "Disable Windows Defender";
+            }
+        }
+
+        public string DisableCloudProtection
+        {
+            get
+            {
+                return "Disable Cloud Protection";
+            }
+        }
+
+        public string DisableSamples
+        {
+            get
+            {
+                return "Disable samples send";
+            }
+        }
+
+        public string DisableAutoUpdate
+        {
+            get
+            {
+                return "Disable auto updates";
+            }
+        }
+
+        public string AllowDifferedUpdate
+        {
+            get
+            {
+                return "Enable differed updates";
+            }
+        }
+
+        public string DisableUpdateSharing
+        {
+            get
+            {
+                return "Disable updates sharing";
+            }
+        }
+
+        public string PreventKeyboard
+        {
+            get
+            {
+                return "Prevent upload of what I'm typing";
+            }
+        }
+
+        public string CheckAll
+        {
+            get { return "Check All"; }
+        }
+
+        public string UncheckAll
+        {
+            get { return "Uncheck All"; }
+        }
+
+        public string DisableAdvancedTracking
+        {
+            get
+            {
+                return "Disabled advanced tracking";
+            }
+        }
+
+        public string AboutText
+        {
+            get
+            {
+                return "W10 Debloating Tool is a small application whose goal is to get rid of the abusive spying on Microsoft Windows 10, and allows you also to uninstall some base applications or do some ergonomic changes.\n\nThank you to have downloaded our tool!\nDon't hesitate to share it, it's free and open-source!";
+            }
+        }
     }
 }

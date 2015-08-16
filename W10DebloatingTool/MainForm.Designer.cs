@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.containerPanel = new System.Windows.Forms.Panel();
             this.privacyButton = new System.Windows.Forms.Button();
             this.appsButton = new System.Windows.Forms.Button();
-            this.languagesCombo = new System.Windows.Forms.ComboBox();
             this.letsgoButton = new System.Windows.Forms.Button();
             this.saveLogsCheckbox = new System.Windows.Forms.CheckBox();
             this.ergonomyButton = new System.Windows.Forms.Button();
@@ -81,19 +81,6 @@
             this.appsButton.TabIndex = 1;
             this.appsButton.Text = "Applications";
             this.appsButton.UseVisualStyleBackColor = false;
-            // 
-            // languagesCombo
-            // 
-            this.languagesCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.languagesCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.languagesCombo.FormattingEnabled = true;
-            this.languagesCombo.Location = new System.Drawing.Point(12, 461);
-            this.languagesCombo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.languagesCombo.Name = "languagesCombo";
-            this.languagesCombo.Size = new System.Drawing.Size(140, 25);
-            this.languagesCombo.TabIndex = 2;
-            this.languagesCombo.Visible = false;
-            this.languagesCombo.SelectedIndexChanged += new System.EventHandler(this.languagesCombo_SelectedIndexChanged);
             // 
             // letsgoButton
             // 
@@ -193,7 +180,6 @@
             this.ClientSize = new System.Drawing.Size(734, 499);
             this.Controls.Add(this.infoButton);
             this.Controls.Add(this.saveLogsCheckbox);
-            this.Controls.Add(this.languagesCombo);
             this.Controls.Add(this.letsgoButton);
             this.Controls.Add(this.servicesButton);
             this.Controls.Add(this.ergonomyButton);
@@ -203,6 +189,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "MainForm";
@@ -219,7 +206,6 @@
         private System.Windows.Forms.Panel containerPanel;
         private System.Windows.Forms.Button privacyButton;
         private System.Windows.Forms.Button appsButton;
-        private System.Windows.Forms.ComboBox languagesCombo;
         private System.Windows.Forms.Button letsgoButton;
         private System.Windows.Forms.CheckBox saveLogsCheckbox;
         private System.Windows.Forms.Button ergonomyButton;

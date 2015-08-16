@@ -21,6 +21,10 @@ namespace W10DebloatingTool
         public void LoadTranslation()
         {
             IStrings strings = Internationalization.Strings;
+
+            this.checkAll.Text = strings.CheckAll;
+            this.uncheckAll.Text = strings.UncheckAll;
+
             this.lockscreen.Text = strings.NoLockscreen;
             this.godmode.Text = strings.EnableGodMode;
             this.tilesStart.Text = strings.NoTilesOnStartMenu;
@@ -51,7 +55,22 @@ namespace W10DebloatingTool
 
         private void ErgonomyForm_Load(object sender, EventArgs e)
         {
+            checkAll.FlatAppearance.MouseOverBackColor = ControlPaint.LightLight(ControlPaint.Dark(BackColor));
+            checkAll.FlatAppearance.MouseDownBackColor = ControlPaint.LightLight(ControlPaint.Dark(BackColor));
+            uncheckAll.FlatAppearance.MouseOverBackColor = ControlPaint.LightLight(ControlPaint.Dark(BackColor));
+            uncheckAll.FlatAppearance.MouseDownBackColor = ControlPaint.LightLight(ControlPaint.Dark(BackColor));
+        }
 
+        private void checkAll_Click(object sender, EventArgs e)
+        {
+            foreach (CheckBox ctl in Controls.OfType<CheckBox>().Where(c => c.Visible && c.Enabled))
+                ctl.Checked = true;
+        }
+
+        private void uncheckAll_Click(object sender, EventArgs e)
+        {
+            foreach (CheckBox ctl in Controls.OfType<CheckBox>().Where(c => c.Visible && c.Enabled))
+                ctl.Checked = false;
         }
     }
 }

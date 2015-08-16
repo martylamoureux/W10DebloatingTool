@@ -266,7 +266,7 @@ namespace W10DebloatingTool.i18n
         {
             get
             {
-                return "Désactiver l'écran de vérrouillage";
+                return "Désactiver l'écran de verrouillage";
             }
         }
 
@@ -310,7 +310,7 @@ namespace W10DebloatingTool.i18n
         {
             get
             {
-                return "Autoriser les sites internets à détecter à ma langue";
+                return "Autoriser les sites à détecter à ma langue";
             }
         }
 
@@ -428,6 +428,120 @@ namespace W10DebloatingTool.i18n
             {
                 return
                     "Le programme va maintenant appliquer les modifications.\nCette opération peut prendre du temps et l'application va se figer le temps de tout faire.";
+            }
+        }
+
+        public string BlockLocalization
+        {
+            get
+            {
+                return "Empêcher l'accès à la localisation";
+            }
+        }
+
+        public string BlockDevices
+        {
+            get
+            {
+                return "Empêcher l'accès aux périphériques";
+            }
+        }
+
+        public string PreventCortana
+        {
+            get
+            {
+                return "Empêcher Cortana de vous connaître";
+            }
+        }
+
+        public string PreventSync
+        {
+            get
+            {
+                return "Empêcher la synchronisation des appareils";
+            }
+        }
+
+        public string DisableDefender
+        {
+            get
+            {
+                return "Désactiver Windows Defender";
+            }
+        }
+
+        public string DisableCloudProtection
+        {
+            get
+            {
+                return "Désactiver la Protection dans le Cloud";
+            }
+        }
+
+        public string DisableSamples
+        {
+            get
+            {
+                return "Désactiver l'envoi d'échantillons";
+            }
+        }
+
+        public string DisableAutoUpdate
+        {
+            get
+            {
+                return "Désactiver les mises à jour automatiques";
+            }
+        }
+
+        public string AllowDifferedUpdate
+        {
+            get
+            {
+                return "Activer les mises à jour différées";
+            }
+        }
+
+        public string DisableUpdateSharing
+        {
+            get
+            {
+                return "Désactiver le partage des mises à jour";
+            }
+        }
+
+        public string PreventKeyboard
+        {
+            get
+            {
+                return "Empêcher l'envoi de ce qui est tapé sur le clavier";
+            }
+        }
+
+        public string CheckAll
+        {
+            get { return "Tout cocher"; }
+        }
+
+        public string UncheckAll
+        {
+            get { return "Tout décocher"; }
+        }
+
+        public string DisableAdvancedTracking
+        {
+            get
+            {
+                return "Désactiver le traçage avancé";
+            }
+        }
+
+        public string AboutText
+        {
+            get
+            {
+                return "W10 Debloating Tool est une petite application dont le but est de vous affranchir de l’espionnage abusif de Microsoft sur Windows 10, mais en plus de cela il vous permettra de désinstaller les applications de base et rajoute quelques choix ergonomiques.\n\nMerci d’avoir téléchargé notre outil !\nN’hésitez pas à le partager, il est gratuit et open-source!";
             }
         }
     }

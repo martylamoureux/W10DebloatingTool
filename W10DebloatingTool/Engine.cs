@@ -169,6 +169,8 @@ namespace W10DebloatingTool
                 case "smartscreen":
                     EditRegistry(Registry.LocalMachine,
                         @"SOFTWARE\Policies\Microsoft\Windows\System", "EnableSmartScreen", 0);
+                    EditRegistry(Registry.CurrentUser,
+                        @"SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost", "EnableWebContentEvaluation", 0);
                     break;
                 case "phone_services":
                     EditRegistry(Registry.LocalMachine,
@@ -253,6 +255,77 @@ namespace W10DebloatingTool
                     AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 adnxs.com");
                     AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 az361816.vo.msecnd.net");
                     AppendLine(@"C:\Windows\System32\drivers\etc\hosts", "127.0.0.1 az512334.vo.msecnd.net");
+                    break;
+                case "block_localization":
+                    EditRegistry(Registry.CurrentUser,
+                        @"Control Panel\International\User Profile", "HttpAcceptLanguageOptOut", 1);
+                    EditRegistry(Registry.LocalMachine,
+                        @"SYSTEM\ControlSet001\Services\lfsvc\Service\Configuration", "Status", 0);
+                    EditRegistry(Registry.LocalMachine,
+                        @"SYSTEM\CurrentControlSet\Services\lfsvc\Service\Configuration", "Status", 0);
+                    break;
+                case "block_devices":
+                    RegistryKey openSubKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global");
+                    if (openSubKey != null)
+                    {
+                        foreach (string key in openSubKey.GetSubKeyNames())
+                        {
+                            EditRegistry(Registry.CurrentUser,
+                                        @"SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\" + key, "Value", "Deny");
+                        }
+                    }
+                    break;
+                case "prevent_cortana":
+                    EditRegistry(Registry.CurrentUser,
+                        @"SOFTWARE\Microsoft\InputPersonalization", "RestrictImplicitTextCollectiondword", 1);
+                    EditRegistry(Registry.CurrentUser,
+                        @"SOFTWARE\Microsoft\InputPersonalization", "RestrictImplicitInkCollection", 1);
+                    EditRegistry(Registry.CurrentUser,
+                        @"SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore", "HarvestContacts", 0);
+                    EditRegistry(Registry.CurrentUser,
+                        @"SOFTWARE\Microsoft\Personalization\Settings", "AcceptedPrivacyPolicy", 0);
+                    break;
+                case "prevent_sync":
+                    EditRegistry(Registry.CurrentUser,
+                        @"SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled", "Value", "Deny");
+                    break;
+                case "disable_defender":
+                    EditRegistry(Registry.LocalMachine,
+                        @"SOFTWARE\Microsoft\Windows Defender\Real-Time Protection", "DisableRealtimeMonitoring", 1);
+                    break;
+                case "disable_cloud_protection":
+                    EditRegistry(Registry.LocalMachine,
+                        @"SOFTWARE\Microsoft\Windows Defender\Spynet", "SpyNetReporting", 0);
+                    break;
+                case "disable_samples":
+                    EditRegistry(Registry.LocalMachine,
+                        @"SOFTWARE\Microsoft\Windows Defender\Spynet", "SubmitSamplesConsent", 0);
+                    break;
+                case "disable_auto_updates":
+                    EditRegistry(Registry.LocalMachine,
+                        @"SOFTWARE\Microsoft\WindowsUpdate\UX\Settings", "UxOption", 0);
+                    break;
+                case "allow_differed_updates":
+                    EditRegistry(Registry.LocalMachine,
+                        @"SOFTWARE\Microsoft\WindowsUpdate\UX\Settings", "DeferUpgrade", 1);
+                    break;
+                case "disable_update_sharing":
+                    EditRegistry(Registry.LocalMachine,
+                        @"SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config", "DODownloadMode", 0);
+                    break;
+                case "prevent_keyboard":
+                    EditRegistry(Registry.CurrentUser,
+                        @"SOFTWARE\Microsoft\Input\TIPC", "Enabled", 0);
+                    break;
+                case "disabled_advanced_tracking":
+                    RunBatch("sc config diagtrack start=disabled");
+                    RunBatch("sc config dmwappushservice start=disabled");
+                    RunBatch("sc config RetailDemo start=disabled");
+                    RunBatch("schtasks /change /TN \"\\Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser\" /DISABLE");
+                    RunBatch("schtasks /change /TN \"\\Microsoft\\Windows\\Application Experience\\ProgramDataUpdater\" /DISABLE");
+                    RunBatch("schtasks /change /TN \"\\Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator\" /DISABLE");
+                    RunBatch("schtasks /change /TN \"\\Microsoft\\Windows\\Customer Experience Improvement Program\\KernelCeipTask\" /DISABLE");
+                    RunBatch("schtasks /change /TN \"\\Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip\" /DISABLE");
                     break;
             }
             WriteLog("==== Finished " + tag);

@@ -33,11 +33,6 @@ namespace W10DebloatingTool
             AdaptButtons();
             LoadTranslation();
 
-            this.languagesCombo.DataSource = new BindingSource(Internationalization.Languages, null);
-            this.languagesCombo.ValueMember = "Key";
-            this.languagesCombo.DisplayMember = "Value";
-            this.languagesCombo.SelectedValue = Internationalization.CurrentLanguageCode;
-
             label1.BackColor = ControlPaint.Dark(Color.DarkGray);
             saveLogsCheckbox.BackColor = ControlPaint.Dark(Color.DarkGray);
             saveLogsCheckbox.ForeColor = Color.White;
@@ -66,6 +61,12 @@ namespace W10DebloatingTool
             int x = (letsgoButton.Left + letsgoButton.Width) - saveLogsCheckbox.Width;
             int y = letsgoButton.Top + letsgoButton.Height + 2;
             this.saveLogsCheckbox.Location = new Point(x, y);
+            
+
+            foreach (Form form in panelForms.Values)
+            {
+                form.GetType().GetMethod("LoadTranslation").Invoke(form, new object[0]);
+            }
         }
 
         public void RegisterView(Form form, Button button)
@@ -138,22 +139,6 @@ namespace W10DebloatingTool
             }
         }
 
-        private void languagesCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.languagesCombo.SelectedValue is string)
-            {
-                string lang = this.languagesCombo.SelectedValue.ToString();
-                Internationalization.SetLanguage(lang);
-                LoadTranslation();
-
-                foreach (Form form in panelForms.Values)
-                {
-                    form.GetType().GetMethod("LoadTranslation").Invoke(form, new object[0]);
-                }
-            }
-            
-        }
-
         private void letsgoButton_Click(object sender, EventArgs e)
         {
 
@@ -215,6 +200,7 @@ namespace W10DebloatingTool
         private void button1_Click(object sender, EventArgs e)
         {
             new InfoForm().ShowDialog();
+            LoadTranslation();
         }
     }
 }

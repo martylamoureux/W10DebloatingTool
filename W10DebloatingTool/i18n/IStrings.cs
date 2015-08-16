@@ -11,10 +11,23 @@ namespace W10DebloatingTool.i18n
         string LetsGo { get; }
         string SaveLogs { get; }
         string ChooseLogsPath { get; }
+        string CheckAll { get; }
+        string UncheckAll { get; }
 
         string Privacy { get; }
         string UseAdsId { get; }
         string AllowSitesToAccessMyLanguage { get; }
+        string BlockLocalization { get; }
+        string BlockDevices { get; }
+        string PreventCortana { get; }
+        string PreventSync { get; }
+        string DisableDefender { get; }
+        string DisableCloudProtection { get; }
+        string DisableSamples { get; }
+        string DisableAutoUpdate { get; }
+        string AllowDifferedUpdate { get; }
+        string DisableUpdateSharing { get; }
+        string PreventKeyboard { get; }
 
         string Applications { get; }
         string RemoveCortana { get; }
@@ -59,6 +72,7 @@ namespace W10DebloatingTool.i18n
         string DisableIt { get; }
         string AsButton { get; }
         string AsBar { get; }
+        string DisableAdvancedTracking { get; }
 
         string Ergonomy { get; }
         string NoLockscreen { get; }
@@ -70,5 +84,6 @@ namespace W10DebloatingTool.i18n
         string NothingToDo { get; }
         string ProcessingWillTakeAWhile { get; }
         string RestartComputer { get; }
+        string AboutText { get; }
     }
 }
